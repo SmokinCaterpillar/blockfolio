@@ -10,3 +10,4 @@ of coins you own in comparison to the total coin supply of the corresponding dig
 First, the current exchanges rates are loaded, then combined with your investments,
 and finally displayed using Plotly.
 
+You can find an HTML version [HERE!](https://smokincaterpillar.github.io/blockfolio/)
