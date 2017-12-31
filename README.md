@@ -1,6 +1,6 @@
 # Blockfolio
 
-A simple Ipython Notebook to display your crypto asset net worth.
+An IPython Notebook to display your crypto asset net worth.
 
 This is a simple "Blockfolio" using Python and the [CoinMarketCap API](https://coinmarketcap.com/api/).
 
