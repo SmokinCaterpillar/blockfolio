@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>CoinMarkteCapPortfolio</title>
+<title>Blockfolio</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11631,10 +11631,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11645,11 +11643,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11775,14 +11771,15 @@ of coins you own in comparison to the total coin supply of the corresponding dig
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly</span>
+<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="kn">as</span> <span class="nn">py</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="kn">as</span> <span class="nn">go</span>
+<span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11816,11 +11813,11 @@ of coins you own in comparison to the total coin supply of the corresponding dig
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">limit</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># only load the top 200 currencies, if you have invested in smaller ones increase this limit</span>
-<span class="n">coin_market_cap_api</span> <span class="o">=</span> <span class="s1">&#39;https://api.coinmarketcap.com/v1/ticker/?limit=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">limit</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># only load the top 200 currencies, if you have invested in smaller ones increase this limit</span>
+<span class="n">coin_market_cap_api</span> <span class="o">=</span> <span class="s1">&#39;https://api.coinmarketcap.com/v1/ticker/?limit={}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
 <span class="n">coin_market_cap_api</span>
 </pre></div>
 
@@ -11832,7 +11829,7 @@ of coins you own in comparison to the total coin supply of the corresponding dig
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11847,10 +11844,10 @@ of coins you own in comparison to the total coin supply of the corresponding dig
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load the data using pandas and keep track of the time</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># load the data using pandas and keep track of the time</span>
 <span class="n">now</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="n">market_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">coin_market_cap_api</span><span class="p">)</span>
 <span class="n">market_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -11864,23 +11861,10 @@ of coins you own in comparison to the total coin supply of the corresponding dig
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -11905,183 +11889,183 @@ of coins you own in comparison to the total coin supply of the corresponding dig
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.127230e+10</td>
-      <td>16769287</td>
+      <td>5483020000</td>
+      <td>16946362</td>
       <td>bitcoin</td>
-      <td>1514542160</td>
-      <td>244346957806</td>
+      <td>1522344268</td>
+      <td>127525610640</td>
       <td>2.100000e+07</td>
       <td>Bitcoin</td>
-      <td>-1.67</td>
-      <td>0.66</td>
-      <td>6.73</td>
+      <td>-0.45</td>
+      <td>-5.19</td>
+      <td>-13.26</td>
       <td>1.000000</td>
-      <td>14571.100000</td>
+      <td>7525.250000</td>
       <td>1</td>
       <td>BTC</td>
-      <td>16769287</td>
+      <td>16946362</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.397460e+09</td>
-      <td>96639172</td>
+      <td>1768970000</td>
+      <td>98491406</td>
       <td>ethereum</td>
-      <td>1514542149</td>
-      <td>71111258149</td>
+      <td>1522344253</td>
+      <td>40879350517</td>
       <td>NaN</td>
       <td>Ethereum</td>
-      <td>-1.92</td>
-      <td>2.58</td>
-      <td>9.42</td>
-      <td>0.051223</td>
-      <td>735.843000</td>
+      <td>0.10</td>
+      <td>-7.68</td>
+      <td>-22.41</td>
+      <td>0.055434</td>
+      <td>415.055000</td>
       <td>2</td>
       <td>ETH</td>
-      <td>96639172</td>
+      <td>98491406</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3.596340e+09</td>
-      <td>38739144847</td>
+      <td>371191000</td>
+      <td>39094227299</td>
       <td>ripple</td>
-      <td>1514542140</td>
-      <td>65389739544</td>
+      <td>1522344241</td>
+      <td>21310341489</td>
       <td>1.000000e+11</td>
       <td>Ripple</td>
-      <td>4.49</td>
-      <td>26.34</td>
-      <td>59.31</td>
-      <td>0.000117</td>
-      <td>1.687950</td>
+      <td>-0.61</td>
+      <td>-5.42</td>
+      <td>-16.75</td>
+      <td>0.000073</td>
+      <td>0.545102</td>
       <td>3</td>
       <td>XRP</td>
-      <td>99993093880</td>
+      <td>99992434971</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3.536340e+09</td>
-      <td>16881963</td>
+      <td>405845000</td>
+      <td>17044388</td>
       <td>bitcoin-cash</td>
-      <td>1514542153</td>
-      <td>41489955138</td>
+      <td>1522344252</td>
+      <td>12877137023</td>
       <td>2.100000e+07</td>
       <td>Bitcoin Cash</td>
-      <td>-2.38</td>
-      <td>-6.27</td>
-      <td>-0.93</td>
-      <td>0.171080</td>
-      <td>2457.650000</td>
+      <td>-0.96</td>
+      <td>-12.61</td>
+      <td>-24.97</td>
+      <td>0.100903</td>
+      <td>755.506000</td>
       <td>4</td>
       <td>BCH</td>
-      <td>16881963</td>
+      <td>17044388</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>3.006560e+09</td>
-      <td>54522208</td>
+      <td>393255000</td>
+      <td>55845045</td>
       <td>litecoin</td>
-      <td>1514542141</td>
-      <td>13245080027</td>
+      <td>1522344241</td>
+      <td>6834875007</td>
       <td>8.400000e+07</td>
       <td>Litecoin</td>
-      <td>-1.82</td>
-      <td>-4.04</td>
-      <td>-3.39</td>
-      <td>0.016911</td>
-      <td>242.930000</td>
+      <td>-0.64</td>
+      <td>-7.98</td>
+      <td>-25.26</td>
+      <td>0.016346</td>
+      <td>122.390000</td>
       <td>5</td>
       <td>LTC</td>
-      <td>54522208</td>
+      <td>55845045</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>1.078460e+08</td>
+      <td>543223000</td>
+      <td>758247977</td>
+      <td>eos</td>
+      <td>1522344253</td>
+      <td>4755048889</td>
+      <td>1.000000e+09</td>
+      <td>EOS</td>
+      <td>-0.78</td>
+      <td>-0.31</td>
+      <td>-7.86</td>
+      <td>0.000838</td>
+      <td>6.271100</td>
+      <td>6</td>
+      <td>EOS</td>
+      <td>900000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>89176200</td>
       <td>25927070538</td>
       <td>cardano</td>
-      <td>1514542155</td>
-      <td>11388543515</td>
+      <td>1522344256</td>
+      <td>4020225631</td>
       <td>4.500000e+10</td>
       <td>Cardano</td>
-      <td>0.89</td>
-      <td>14.62</td>
-      <td>13.02</td>
-      <td>0.000031</td>
-      <td>0.439253</td>
-      <td>6</td>
+      <td>-0.62</td>
+      <td>-2.81</td>
+      <td>-22.29</td>
+      <td>0.000021</td>
+      <td>0.155059</td>
+      <td>7</td>
       <td>ADA</td>
       <td>31112483745</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>1.914670e+08</td>
-      <td>2779530283</td>
-      <td>iota</td>
-      <td>1514542151</td>
-      <td>9901381751</td>
-      <td>2.779530e+09</td>
-      <td>IOTA</td>
-      <td>-3.96</td>
-      <td>3.06</td>
-      <td>-4.04</td>
-      <td>0.000248</td>
-      <td>3.562250</td>
-      <td>7</td>
-      <td>MIOTA</td>
-      <td>2779530283</td>
-    </tr>
-    <tr>
       <th>7</th>
-      <td>1.615940e+08</td>
-      <td>7781857</td>
-      <td>dash</td>
-      <td>1514542141</td>
-      <td>8510627831</td>
-      <td>1.890000e+07</td>
-      <td>Dash</td>
-      <td>-2.25</td>
-      <td>-0.06</td>
-      <td>-1.10</td>
-      <td>0.076130</td>
-      <td>1093.650000</td>
+      <td>40536400</td>
+      <td>18550593129</td>
+      <td>stellar</td>
+      <td>1522344243</td>
+      <td>3755344972</td>
+      <td>NaN</td>
+      <td>Stellar</td>
+      <td>-0.81</td>
+      <td>-7.32</td>
+      <td>-14.95</td>
+      <td>0.000027</td>
+      <td>0.202438</td>
       <td>8</td>
-      <td>DASH</td>
-      <td>7781857</td>
+      <td>XLM</td>
+      <td>103807834721</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>4.768900e+07</td>
-      <td>8999999999</td>
-      <td>nem</td>
-      <td>1514542145</td>
-      <td>8313758999</td>
-      <td>NaN</td>
-      <td>NEM</td>
-      <td>0.34</td>
-      <td>6.00</td>
-      <td>13.82</td>
-      <td>0.000064</td>
-      <td>0.923751</td>
+      <td>88059600</td>
+      <td>65000000</td>
+      <td>neo</td>
+      <td>1522344248</td>
+      <td>3525333500</td>
+      <td>1.000000e+08</td>
+      <td>NEO</td>
+      <td>-0.31</td>
+      <td>-5.14</td>
+      <td>-21.78</td>
+      <td>0.007244</td>
+      <td>54.235900</td>
       <td>9</td>
-      <td>XEM</td>
-      <td>8999999999</td>
+      <td>NEO</td>
+      <td>100000000</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>1.366960e+08</td>
-      <td>15529227</td>
-      <td>monero</td>
-      <td>1514542143</td>
-      <td>5696337741</td>
+      <td>485474000</td>
+      <td>65748192475</td>
+      <td>tron</td>
+      <td>1522344254</td>
+      <td>3224961991</td>
       <td>NaN</td>
-      <td>Monero</td>
-      <td>-0.92</td>
-      <td>-1.36</td>
-      <td>13.37</td>
-      <td>0.025534</td>
-      <td>366.814000</td>
+      <td>TRON</td>
+      <td>-1.28</td>
+      <td>9.79</td>
+      <td>36.32</td>
+      <td>0.000007</td>
+      <td>0.049050</td>
       <td>10</td>
-      <td>XMR</td>
-      <td>15529227</td>
+      <td>TRX</td>
+      <td>100000000000</td>
     </tr>
   </tbody>
 </table>
@@ -12107,10 +12091,10 @@ with the format <code>'SYMBOL': value</code>.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># enter your coins below:</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># enter your coins below:</span>
 
 <span class="n">block_folio</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;BTC&#39;</span><span class="p">:</span> <span class="mf">0.31337</span><span class="p">,</span>
@@ -12130,8 +12114,43 @@ with the format <code>'SYMBOL': value</code>.</p>
     <span class="s1">&#39;GAS&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
     <span class="s1">&#39;STEEM&#39;</span><span class="p">:</span> <span class="mi">499</span><span class="p">,</span>
 <span class="p">}</span>
+</pre></div>
 
-<span class="c1"># display your blockfolio</span>
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># ----- OPTIONAL: uncomment for keeping track of multiple wallets ----- #</span>
+
+<span class="c1"># if you have some coins spread out over multiple wallets that might change value independently</span>
+<span class="c1"># you can enter individual balances here:</span>
+
+<span class="c1">#btc = { &#39;binance&#39;: 0.002, &#39;gdax&#39;: 0.05, &#39;cold_storage&#39;: 0.1}</span>
+<span class="c1">#eth = { &#39;binance&#39;: 0.05, &#39;bittrex&#39;: 1}</span>
+
+<span class="c1"># and then use the sum of your holdings for the coin&#39;s block_folio value:</span>
+
+<span class="c1">#block_folio[&#39;BTC&#39;] = sum(btc.values())</span>
+<span class="c1">#block_folio[&#39;ETH&#39;] = sum(eth.values())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># display your blockfolio</span>
 <span class="n">block_folio</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">block_folio</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">,</span> <span class="s1">&#39;amount&#39;</span><span class="p">])</span>
 <span class="n">block_folio</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">block_folio</span><span class="p">))</span>
 </pre></div>
@@ -12144,23 +12163,10 @@ with the format <code>'SYMBOL': value</code>.</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12172,13 +12178,13 @@ with the format <code>'SYMBOL': value</code>.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>BCH</td>
-      <td>0.01337</td>
+      <td>DASH</td>
+      <td>0.10000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>GAS</td>
-      <td>0.01000</td>
+      <td>BCH</td>
+      <td>0.01337</td>
     </tr>
     <tr>
       <th>2</th>
@@ -12187,23 +12193,23 @@ with the format <code>'SYMBOL': value</code>.</p>
     </tr>
     <tr>
       <th>3</th>
-      <td>XMR</td>
-      <td>1.00000</td>
+      <td>PIVX</td>
+      <td>123.00000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>STEEM</td>
-      <td>499.00000</td>
+      <td>GAS</td>
+      <td>0.01000</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>XRB</td>
-      <td>42.00000</td>
+      <td>LSK</td>
+      <td>12.00000</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>XRP</td>
-      <td>13.00000</td>
+      <td>XRB</td>
+      <td>42.00000</td>
     </tr>
     <tr>
       <th>7</th>
@@ -12212,43 +12218,43 @@ with the format <code>'SYMBOL': value</code>.</p>
     </tr>
     <tr>
       <th>8</th>
-      <td>BTC</td>
-      <td>0.31337</td>
-    </tr>
-    <tr>
-      <th>9</th>
       <td>MIOTA</td>
       <td>777.00000</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>LSK</td>
-      <td>12.00000</td>
+      <th>9</th>
+      <td>BTC</td>
+      <td>0.31337</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>10</th>
       <td>OMG</td>
       <td>1.10000</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>11</th>
       <td>ETH</td>
       <td>3.00000</td>
     </tr>
     <tr>
+      <th>12</th>
+      <td>ARK</td>
+      <td>22.00000</td>
+    </tr>
+    <tr>
       <th>13</th>
-      <td>PIVX</td>
-      <td>123.00000</td>
+      <td>STEEM</td>
+      <td>499.00000</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>DASH</td>
-      <td>0.10000</td>
+      <td>XRP</td>
+      <td>13.00000</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>ARK</td>
-      <td>22.00000</td>
+      <td>XMR</td>
+      <td>1.00000</td>
     </tr>
   </tbody>
 </table>
@@ -12272,14 +12278,14 @@ with the format <code>'SYMBOL': value</code>.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># merge the API and blockfolio data and sort by investment value</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># merge the API and blockfolio data and sort by investment value</span>
 <span class="n">merged_data</span> <span class="o">=</span> <span class="n">block_folio</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">market_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
 <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;value_usd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">amount</span> <span class="o">*</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">price_usd</span>
 <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;coinshare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">amount</span> <span class="o">/</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">available_supply</span>
-<span class="n">merged_data</span> <span class="o">=</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;value_usd&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">merged_data</span> <span class="o">=</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;value_usd&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">merged_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -12291,23 +12297,10 @@ with the format <code>'SYMBOL': value</code>.</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12334,109 +12327,109 @@ with the format <code>'SYMBOL': value</code>.</p>
   </thead>
   <tbody>
     <tr>
-      <th>8</th>
+      <th>9</th>
       <td>BTC</td>
       <td>0.31337</td>
-      <td>1.127230e+10</td>
-      <td>16769287</td>
+      <td>5483020000</td>
+      <td>16946362</td>
       <td>bitcoin</td>
-      <td>1514542160</td>
-      <td>244346957806</td>
-      <td>2.100000e+07</td>
+      <td>1522344268</td>
+      <td>1.275256e+11</td>
+      <td>21000000</td>
       <td>Bitcoin</td>
-      <td>-1.67</td>
-      <td>0.66</td>
-      <td>6.73</td>
+      <td>-0.45</td>
+      <td>-5.19</td>
+      <td>-13.26</td>
       <td>1.000000</td>
-      <td>14571.10000</td>
+      <td>7525.25000</td>
       <td>1</td>
-      <td>16769287</td>
-      <td>4566.145607</td>
-      <td>1.868714e-08</td>
+      <td>16946362</td>
+      <td>2358.187592</td>
+      <td>1.849187e-08</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>11</th>
+      <td>ETH</td>
+      <td>3.00000</td>
+      <td>1768970000</td>
+      <td>98491406</td>
+      <td>ethereum</td>
+      <td>1522344253</td>
+      <td>4.087935e+10</td>
+      <td>NaN</td>
+      <td>Ethereum</td>
+      <td>0.10</td>
+      <td>-7.68</td>
+      <td>-22.41</td>
+      <td>0.055434</td>
+      <td>415.05500</td>
+      <td>2</td>
+      <td>98491406</td>
+      <td>1245.165000</td>
+      <td>3.045951e-08</td>
+    </tr>
+    <tr>
+      <th>8</th>
       <td>MIOTA</td>
       <td>777.00000</td>
-      <td>1.914670e+08</td>
+      <td>33912400</td>
       <td>2779530283</td>
       <td>iota</td>
-      <td>1514542151</td>
-      <td>9901381751</td>
-      <td>2.779530e+09</td>
-      <td>IOTA</td>
-      <td>-3.96</td>
-      <td>3.06</td>
-      <td>-4.04</td>
-      <td>0.000248</td>
-      <td>3.56225</td>
-      <td>7</td>
+      <td>1522344251</td>
+      <td>3.128334e+09</td>
       <td>2779530283</td>
-      <td>2767.868250</td>
+      <td>IOTA</td>
+      <td>-0.64</td>
+      <td>-6.17</td>
+      <td>-14.20</td>
+      <td>0.000150</td>
+      <td>1.12549</td>
+      <td>11</td>
+      <td>2779530283</td>
+      <td>874.505730</td>
       <td>2.795436e-07</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>ETH</td>
-      <td>3.00000</td>
-      <td>2.397460e+09</td>
-      <td>96639172</td>
-      <td>ethereum</td>
-      <td>1514542149</td>
-      <td>71111258149</td>
-      <td>NaN</td>
-      <td>Ethereum</td>
-      <td>-1.92</td>
-      <td>2.58</td>
-      <td>9.42</td>
-      <td>0.051223</td>
-      <td>735.84300</td>
-      <td>2</td>
-      <td>96639172</td>
-      <td>2207.529000</td>
-      <td>3.104331e-08</td>
-    </tr>
-    <tr>
-      <th>4</th>
+      <th>13</th>
       <td>STEEM</td>
       <td>499.00000</td>
-      <td>4.653600e+06</td>
-      <td>246344041</td>
+      <td>3353340</td>
+      <td>255563840</td>
       <td>steem</td>
-      <td>1514542146</td>
-      <td>703883756</td>
+      <td>1522344246</td>
+      <td>4.432346e+08</td>
       <td>NaN</td>
       <td>Steem</td>
-      <td>-0.82</td>
-      <td>0.22</td>
-      <td>6.18</td>
-      <td>0.000199</td>
-      <td>2.85732</td>
-      <td>41</td>
-      <td>263318135</td>
-      <td>1425.802680</td>
-      <td>2.025622e-06</td>
+      <td>-0.13</td>
+      <td>-3.88</td>
+      <td>-16.87</td>
+      <td>0.000232</td>
+      <td>1.73434</td>
+      <td>31</td>
+      <td>272537934</td>
+      <td>865.435660</td>
+      <td>1.952545e-06</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>3</th>
       <td>PIVX</td>
       <td>123.00000</td>
-      <td>7.378790e+06</td>
-      <td>55233563</td>
+      <td>4932590</td>
+      <td>55853638</td>
       <td>pivx</td>
-      <td>1514542146</td>
-      <td>620587747</td>
+      <td>1522344246</td>
+      <td>2.188848e+08</td>
       <td>NaN</td>
       <td>PIVX</td>
-      <td>1.79</td>
-      <td>-1.53</td>
-      <td>43.96</td>
-      <td>0.000782</td>
-      <td>11.23570</td>
-      <td>44</td>
-      <td>55233563</td>
-      <td>1381.991100</td>
-      <td>2.226907e-06</td>
+      <td>-2.08</td>
+      <td>-10.82</td>
+      <td>1.50</td>
+      <td>0.000523</td>
+      <td>3.91890</td>
+      <td>58</td>
+      <td>55853638</td>
+      <td>482.024700</td>
+      <td>2.202184e-06</td>
     </tr>
   </tbody>
 </table>
@@ -12460,12 +12453,12 @@ with the format <code>'SYMBOL': value</code>.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">networth</span> <span class="o">=</span> <span class="s1">&#39;Your blockfolio is currently (i.e </span><span class="si">{}</span><span class="s1">) worth </span><span class="si">{:.2f}</span><span class="s1"> USD!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %I:%M %p&#39;</span><span class="p">),</span> 
-                                                                        <span class="n">merged_data</span><span class="o">.</span><span class="n">value_usd</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">networth</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">networth</span> <span class="o">=</span> <span class="n">merged_data</span><span class="o">.</span><span class="n">value_usd</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Your blockfolio is currently (i.e {}) worth {:.2f} USD!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %I:%M %p&#39;</span><span class="p">),</span> <span class="n">networth</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12478,7 +12471,7 @@ with the format <code>'SYMBOL': value</code>.</p>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Your blockfolio is currently (i.e 2017-12-29 11:12 AM) worth 14759.14 USD!
+<pre>Your blockfolio is currently (i.e 2018-03-30 12:29 AM) worth 6786.07 USD!
 </pre>
 </div>
 </div>
@@ -12499,10 +12492,10 @@ with the format <code>'SYMBOL': value</code>.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;rgb(158,202,225)&#39;</span><span class="p">,</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;rgb(158,202,225)&#39;</span><span class="p">,</span>
               <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;rgb(8,48,107)&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">))</span>
 
 <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Blockfolio Networth in USD&#39;</span><span class="p">,</span>
@@ -12526,7 +12519,7 @@ with the format <code>'SYMBOL': value</code>.</p>
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<div id="d8175f85-6522-4241-ab56-8d6e60bba250" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("d8175f85-6522-4241-ab56-8d6e60bba250", [{"marker": {"color": "rgb(158,202,225)", "line": {"width": 1.5, "color": "rgb(8,48,107)"}}, "x": ["BTC", "MIOTA", "ETH", "STEEM", "PIVX", "XRB", "NEO", "XMR", "LTC", "LSK", "ARK", "DASH", "BCH", "XRP", "OMG", "GAS"], "y": [4566.1456069999995, 2767.86825, 2207.529, 1425.80268, 1381.9911, 627.606, 453.91499999999996, 366.814, 364.395, 266.9004, 149.33292, 109.36500000000001, 32.8587805, 21.943350000000002, 16.41024, 0.267077], "type": "bar"}], {"xaxis": {"title": "Cryptocurrency"}, "yaxis": {"title": "USD"}, "title": "Blockfolio Networth in USD"}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
+<div id="34860295-2d1c-4010-ad50-345caafec851" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("34860295-2d1c-4010-ad50-345caafec851", [{"marker": {"color": "rgb(158,202,225)", "line": {"color": "rgb(8,48,107)", "width": 1.5}}, "y": [2358.1875925, 1245.165, 874.5057300000001, 865.43566, 482.0247, 379.6513, 185.785, 183.585, 102.47543999999999, 48.411660000000005, 33.5565, 10.101115219999999, 9.924574, 7.086326, 0.171042, null], "type": "bar", "x": ["BTC", "ETH", "MIOTA", "STEEM", "PIVX", "NEO", "XMR", "LTC", "LSK", "ARK", "DASH", "BCH", "OMG", "XRP", "GAS", "XRB"]}], {"title": "Blockfolio Networth in USD", "xaxis": {"title": "Cryptocurrency"}, "yaxis": {"title": "USD"}}, {"linkText": "Export to plot.ly", "showLink": true})});</script>
 </div>
 
 </div>
@@ -12549,10 +12542,10 @@ The graph below shows you fractional share of the the current crypto's total sup
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;rgb(258,202,125)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;rgb(8,48,107)&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;rgb(258,202,125)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;rgb(8,48,107)&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,))</span>
 
 <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Relative Blockfolio Size&#39;</span><span class="p">,</span>
                    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Cryptocurrency&#39;</span><span class="p">),</span>
@@ -12575,7 +12568,7 @@ The graph below shows you fractional share of the the current crypto's total sup
 <div class="output_area"><div class="prompt"></div>
 
 <div class="output_html rendered_html output_subarea ">
-<div id="9ce3f4a7-ae3e-4053-87fd-605db44707f8" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("9ce3f4a7-ae3e-4053-87fd-605db44707f8", [{"marker": {"color": "rgb(258,202,125)", "line": {"width": 1.5, "color": "rgb(8,48,107)"}}, "x": ["BTC", "MIOTA", "ETH", "STEEM", "PIVX", "XRB", "NEO", "XMR", "LTC", "LSK", "ARK", "DASH", "BCH", "XRP", "OMG", "GAS"], "y": [1.868713917294158e-08, 2.795436353948873e-07, 3.104331233301544e-08, 2.025622369326969e-06, 2.2269068537186346e-06, 3.152010454708353e-07, 1.0769230769230769e-07, 6.439470554458377e-08, 2.7511725130427586e-08, 1.0306087359205965e-07, 2.245326770773896e-07, 1.285040318782522e-08, 7.919695120762912e-10, 3.3557787739877625e-10, 1.0779816639630887e-08, 1.0943814238821605e-09], "type": "bar"}], {"xaxis": {"title": "Cryptocurrency"}, "yaxis": {"title": "Fraction of total Supply"}, "title": "Relative Blockfolio Size"}, {"showLink": true, "linkText": "Export to plot.ly"})});</script>
+<div id="f5cc3f40-c370-433e-9784-8c9f1b0716db" style="height: 525px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">require(["plotly"], function(Plotly) { window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("f5cc3f40-c370-433e-9784-8c9f1b0716db", [{"marker": {"color": "rgb(258,202,125)", "line": {"color": "rgb(8,48,107)", "width": 1.5}}, "y": [1.8491874539207884e-08, 3.0459510345501615e-08, 2.795436353948873e-07, 1.952545399223928e-06, 2.202184215824939e-06, 1.0769230769230769e-07, 6.298372286456522e-08, 2.686003744826421e-08, 1.161728099203525e-07, 2.166352899990279e-07, 1.254016615218545e-08, 7.844224151667986e-10, 1.0779816639630887e-08, 3.3252991293506217e-10, 1.0011294742728746e-09, null], "type": "bar", "x": ["BTC", "ETH", "MIOTA", "STEEM", "PIVX", "NEO", "XMR", "LTC", "LSK", "ARK", "DASH", "BCH", "OMG", "XRP", "GAS", "XRB"]}], {"title": "Relative Blockfolio Size", "xaxis": {"title": "Cryptocurrency"}, "yaxis": {"title": "Fraction of total Supply"}}, {"linkText": "Export to plot.ly", "showLink": true})});</script>
 </div>
 
 </div>
@@ -12583,16 +12576,87 @@ The graph below shows you fractional share of the the current crypto's total sup
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Your-fiat-investments">Your fiat investments<a class="anchor-link" href="#Your-fiat-investments">&#182;</a></h2><p>To keep track of how much fiat money (here in USD) was invested.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">fiat_USD</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;2013-12-01&#39;</span><span class="p">:</span> <span class="mf">100.5</span><span class="p">,</span>
+    <span class="s1">&#39;2017-10-15&#39;</span><span class="p">:</span> <span class="mf">1000.10</span><span class="p">,</span>
+    <span class="s1">&#39;2018-01-31&#39;</span><span class="p">:</span> <span class="mf">500.30</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">investment</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">fiat_USD</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;By {} you invested {:.2f} USD!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %I:%M %p&#39;</span><span class="p">),</span> <span class="n">investment</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>By 2018-03-30 12:29 AM you invested 1600.90 USD!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Your-current-gains/losses">Your current gains/losses<a class="anchor-link" href="#Your-current-gains/losses">&#182;</a></h2><p>How much did your blockfolio increase or decrease in value?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">capital_gains</span> <span class="o">=</span> <span class="n">networth</span> <span class="o">-</span> <span class="n">investment</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;At {} your crypto investment nets USD {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %I:%M %p&#39;</span><span class="p">),</span> <span class="n">capital_gains</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>At 2018-03-30 12:29 AM your crypto investment nets USD 5185.16663972
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
